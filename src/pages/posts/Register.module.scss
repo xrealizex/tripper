@@ -1,0 +1,74 @@
+.root {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  .register_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  .avatar_icon {
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .add_image_button {
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .title {
+    justify-content: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  .username_area {
+    justify-content: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: white;
+    width: 50%;
+  }
+  .email_area {
+    justify-content: center;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: white;
+    width: 50%;
+  }
+  .password_area {
+    justify-content: center;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: white;
+    width: 50%;
+  }
+  .google_login_button {
+    justify-content: center;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 50%;
+  }
+}
