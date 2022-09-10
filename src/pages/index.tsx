@@ -1,9 +1,38 @@
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser, login, logout } from '../userSlice';
+import { auth } from '../firebase';
+//Firebase ver9 compliant
+import { onAuthStateChanged } from 'firebase/auth';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import HomeLayout from '../components/pages/Home/HomeLayout';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  // const user = useSelector(selectUser);
+  // const dispatch = useDispatch();
+  // const getUser = onAuthStateChanged(auth, (authUser) => {
+  //   if (authUser) {
+  //     dispatch(
+  //       login({
+  //         uid: authUser.uid,
+  //         photoUrl: authUser.photoURL,
+  //         displayName: authUser.displayName,
+  //       }),
+  //     );
+  //   } else {
+  //     dispatch(logout());
+  //   }
+  //   return () => {
+  //     getUser();
+  //   };
+  // });
+
+  // useEffect(() => {
+  //   getUser();
+  // }, [dispatch, getUser]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +43,6 @@ const Home: NextPage = () => {
       <main>
         <HomeLayout />
       </main>
-
       <footer className={styles.footer}></footer>
     </div>
   );
