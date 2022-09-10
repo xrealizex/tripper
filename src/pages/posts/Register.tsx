@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import styles from './Register.module.scss';
 import Image from 'next/image';
 import RegisterImage from '../../../public/images/register.jpg';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
-// import { useDispatch } from 'react-redux';
-// import { updateUserProfile } from '../features/userSlice';
+import { useDispatch } from 'react-redux';
+import { updateUserProfile } from '../../userSlice';
 import { auth, provider, storage } from '../../firebase';
+import { useRouter } from 'next/router';
 
 //Firebase ver9 compliant
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -14,7 +14,6 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 //Firebase ver9 compliant
 import {
   signInWithPopup,
-  sendPasswordResetEmail,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
@@ -40,27 +39,13 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Register: NextPage = () => {
-  // const dispatch = useDispatch();
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [avatarImage, setAvatarImage] = useState<File | null>(null);
   const [isLogin, setIsLogin] = useState(true);
-  const [openModal, setOpenModal] = React.useState(false);
-  const [resetEmail, setResetEmail] = useState('');
-
-  // const sendResetEmail = async (e: React.MouseEvent<HTMLElement>) => {
-  //   //Firebase ver9 compliant
-  //   await sendPasswordResetEmail(auth, resetEmail)
-  //     .then(() => {
-  //       setOpenModal(false);
-  //       setResetEmail("");
-  //     })
-  //     .catch((err) => {
-  //       alert(err.message);
-  //       setResetEmail("");
-  //     });
-  // };
 
   const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files![0]) {
@@ -68,10 +53,10 @@ const Register: NextPage = () => {
       e.target.value = '';
     }
   };
-  // const signInEmail = async () => {
-  //   //Firebase ver9 compliant
-  //   await signInWithEmailAndPassword(auth, email, password);
-  // };
+  const signInEmail = async () => {
+    //Firebase ver9 compliant
+    await signInWithEmailAndPassword(auth, email, password);
+  };
 
   const signUpEmail = async () => {
     //Firebase ver9 compliant
@@ -96,12 +81,12 @@ const Register: NextPage = () => {
       });
     }
 
-    // dispatch(
-    //   updateUserProfile({
-    //     displayName: username,
-    //     photoUrl: url,
-    //   })
-    // );
+    dispatch(
+      updateUserProfile({
+        displayName: username,
+        photoUrl: url,
+      }),
+    );
   };
   const signInGoogle = async () => {
     //Firebase ver9 compliant
@@ -109,121 +94,88 @@ const Register: NextPage = () => {
   };
   return (
     <div className={styles.root}>
-      <Image src={RegisterImage} alt='RegisterImage' className={styles.register_image} />
-      <HowToRegIcon fontSize='large' color='primary' className={styles.avatar_icon} />
-      <Typography component='h1' variant='h5' className={styles.title}>
-        メンバー登録
-      </Typography>
-      <form noValidate>
-        <TextField
-          variant='outlined'
-          margin='normal'
-          required
-          fullWidth
-          id='username'
-          label='Username'
-          name='username'
-          autoComplete='username'
-          autoFocus
-          value={username}
-          className={styles.username_area}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setUsername(e.target.value);
-          }}
-        />
+      <Image
+        src={RegisterImage}
+        alt='RegisterImage'
+        objectFit='cover'
+        className={styles.register_image}
+      />
+      <div className={styles.input_area}>
+        <Typography component='h1' variant='h5' className={styles.title}>
+          メンバー登録
+        </Typography>
         <Box textAlign='center'>
           <IconButton className={styles.add_image_button}>
             <label>
-              <AccountCircleIcon
-                fontSize='large'
-                className={avatarImage ? styles.login_addIconLoaded : styles.login_addIcon}
-              />
-              <input
-                className={styles.login_hiddenIcon}
-                type='file'
-                onChange={onChangeImageHandler}
-              />
+              <AccountCircleIcon fontSize='large' />
+              <input type='file' onChange={onChangeImageHandler} />
             </label>
           </IconButton>
         </Box>
-
-        <TextField
-          variant='outlined'
-          margin='normal'
-          required
-          fullWidth
-          id='email'
-          label='Email Address'
-          name='email'
-          autoComplete='email'
-          autoFocus
-          value={email}
-          className={styles.email_area}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <TextField
-          variant='outlined'
-          margin='normal'
-          required
-          fullWidth
-          name='password'
-          label='Password'
-          type='password'
-          id='password'
-          autoComplete='current-password'
-          value={password}
-          className={styles.password_area}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setPassword(e.target.value);
-          }}
-        />
-
-        <Button
-          disabled={
-            isLogin
-              ? !email || password.length < 6
-              : !username || !email || password.length < 6 || !avatarImage
-          }
-          fullWidth
-          variant='contained'
-          color='primary'
-          startIcon={<EmailIcon />}
-          //   onClick={
-          //     isLogin
-          //       ? async () => {
-          //           try {
-          //             await signInEmail();
-          //           } catch (err: any) {
-          //             alert(err.message);
-          //           }
-          //         }
-          //       : async () => {
-          //           try {
-          //             await signUpEmail();
-          //           } catch (err: any) {
-          //             alert(err.message);
-          //           }
-          //         }
-          //   }
-        >
-          メンバー登録
-        </Button>
-        <Grid container>
-          <Grid item xs></Grid>
-        </Grid>
-        <Button
-          fullWidth
-          variant='contained'
-          color='primary'
-          startIcon={<CameraIcon />}
-          className={styles.google_login_button}
-          onClick={signInGoogle}
-        >
-          Googleでメンバーになる
-        </Button>
-      </form>
+        <form noValidate>
+          <TextField
+            // variant='outlined'
+            margin='normal'
+            required
+            fullWidth
+            id='username'
+            label='Username'
+            name='username'
+            autoComplete='username'
+            autoFocus
+            value={username}
+            className={styles.username_area}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setUsername(e.target.value);
+            }}
+          />
+          <TextField
+            // variant='outlined'
+            margin='normal'
+            required
+            fullWidth
+            id='email'
+            label='Email Address'
+            name='email'
+            autoComplete='email'
+            autoFocus
+            value={email}
+            className={styles.email_area}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <TextField
+            // variant='outlined'
+            margin='normal'
+            required
+            fullWidth
+            name='password'
+            label='Password'
+            type='password'
+            id='password'
+            autoComplete='current-password'
+            value={password}
+            className={styles.password_area}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <Grid container>
+            <Grid item xs></Grid>
+          </Grid>
+          <Button
+            fullWidth
+            variant='contained'
+            color='primary'
+            startIcon={<CameraIcon />}
+            className={styles.google_login_button}
+            onClick={signInGoogle}
+          >
+            Googleでメンバーになる
+          </Button>
+        </form>
+      </div>
     </div>
   );
 };
