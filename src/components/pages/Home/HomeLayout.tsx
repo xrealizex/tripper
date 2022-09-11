@@ -1,19 +1,23 @@
-//lib
+//- フレームワーク
 import { NextPage, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import React from 'react';
-//styles
+
+//- スタイル
 import styles from './HomeLayout.module.scss';
 import EntranceImage from '../../../../public/images/entrance.jpg';
-//MUI
+
+//- MUI
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
 const HomeLayout: NextPage = () => {
+  //- フレームワーク
   const router = useRouter();
+  //- 関数定義
   const handleClick = () => {
-    router.push('/posts/Register');
+    router.push('../Register/Register');
   };
 
   return (

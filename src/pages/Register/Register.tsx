@@ -1,65 +1,56 @@
+//- フレームワーク
 import { NextPage } from 'next';
 import React, { useState } from 'react';
-import styles from './Register.module.scss';
 import Image from 'next/image';
-import RegisterImage from '../../../public/images/register.jpg';
-import { useDispatch } from 'react-redux';
-import { updateUserProfile } from '../../userSlice';
-import { auth, provider, storage } from '../../firebase';
 import { useRouter } from 'next/router';
-
-//Firebase ver9 compliant
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-
-//Firebase ver9 compliant
+import { useDispatch } from 'react-redux';
 import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-import {
-  Avatar,
-  Button,
-  CssBaseline,
-  TextField,
-  Paper,
-  Grid,
-  Typography,
-  makeStyles,
-  Modal,
-  IconButton,
-  Box,
-} from '@material-ui/core';
-import SendIcon from '@material-ui/icons/Send';
+//- グローバルstate
+import { updateUserProfile } from '../../userSlice';
+
+//- 共通
+import { auth, provider, storage } from '../../firebase';
+import RegisterImage from '../../../public/images/register.jpg';
+
+//- スタイル
+import styles from './Register.module.scss';
+
+//- MUI
+import { Avatar, Button, TextField, Grid, Typography, IconButton, Box } from '@material-ui/core';
 import CameraIcon from '@material-ui/icons/Camera';
-import EmailIcon from '@material-ui/icons/Email';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Register: NextPage = () => {
-  const router = useRouter();
-  const dispatch = useDispatch();
+  //state
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [avatarImage, setAvatarImage] = useState<File | null>(null);
   const [isLogin, setIsLogin] = useState(true);
 
-  const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //- フレームワーク
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  //- 関数定義
+  const onChangeImageHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     if (e.target.files![0]) {
       setAvatarImage(e.target.files![0]);
       e.target.value = '';
     }
   };
   const signInEmail = async () => {
-    //Firebase ver9 compliant
     await signInWithEmailAndPassword(auth, email, password);
   };
 
   const signUpEmail = async () => {
-    //Firebase ver9 compliant
     const authUser = await createUserWithEmailAndPassword(auth, email, password);
     let url = '';
     if (avatarImage) {
@@ -69,18 +60,15 @@ const Register: NextPage = () => {
         .map((n) => S[n % S.length])
         .join('');
       const fileName = randomChar + '_' + avatarImage.name;
-      //Firebase ver9 compliant
       await uploadBytes(ref(storage, `avatars/${fileName}`), avatarImage);
       url = await getDownloadURL(ref(storage, `avatars/${fileName}`));
     }
-    //Firebase ver9 compliant
     if (authUser.user) {
       await updateProfile(authUser.user, {
         displayName: username,
         photoURL: url,
       });
     }
-
     dispatch(
       updateUserProfile({
         displayName: username,
@@ -88,10 +76,19 @@ const Register: NextPage = () => {
       }),
     );
   };
-  const signInGoogle = async () => {
-    //Firebase ver9 compliant
-    await signInWithPopup(auth, provider).catch((err) => alert(err.message));
+
+  const signInGoogle = (): void => {
+    signInWithPopup(auth, provider)
+      .then(() => {
+        router.push('../posts/TripList');
+        console.log('success');
+      })
+      .catch((error) => {
+        alert(`ログインに失敗しました。エラー内容${error}。`);
+        console.log('error');
+      });
   };
+
   return (
     <div className={styles.root}>
       <Image
@@ -114,7 +111,6 @@ const Register: NextPage = () => {
         </Box>
         <form noValidate>
           <TextField
-            // variant='outlined'
             margin='normal'
             required
             fullWidth
@@ -130,7 +126,6 @@ const Register: NextPage = () => {
             }}
           />
           <TextField
-            // variant='outlined'
             margin='normal'
             required
             fullWidth
@@ -146,7 +141,6 @@ const Register: NextPage = () => {
             }}
           />
           <TextField
-            // variant='outlined'
             margin='normal'
             required
             fullWidth
