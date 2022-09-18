@@ -27,38 +27,10 @@
       transform: translate(-50%, -50%);
       color: gray;
     }
-    .add_image_button {
-      justify-content: center;
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      .login_addIconLoaded {
-        cursor: pointer;
-        color: whitesmoke;
-      }
-      .login_addIcon {
-        cursor: pointer;
-        color: gray;
-      }
-      .login_hiddenIcon {
-        text-align: center;
-        display: none;
-      }
-    }
-    .add_image_text {
-      justify-content: center;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: small;
-      color: gray;
-    }
     .username_area {
       justify-content: center;
       position: absolute;
-      top: 45%;
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: white;
@@ -69,7 +41,7 @@
     .email_area {
       justify-content: center;
       position: absolute;
-      top: 55%;
+      top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: white;
@@ -79,7 +51,7 @@
     .password_area {
       justify-content: center;
       position: absolute;
-      top: 65%;
+      top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: white;
@@ -89,7 +61,7 @@
     .start_button {
       justify-content: center;
       position: absolute;
-      top: 78%;
+      top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
@@ -98,7 +70,7 @@
     .google_login_button {
       justify-content: center;
       position: absolute;
-      top: 88%;
+      top: 82%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: blue;
