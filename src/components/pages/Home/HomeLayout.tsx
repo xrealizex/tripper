@@ -27,7 +27,7 @@ const HomeLayout: NextPage = () => {
     router.push('../Login/Login');
   };
   const onClickQuickStart = () => {
-    router.push('../posts/TripList');
+    router.push('../Main/TripLists');
   };
 
   return (
