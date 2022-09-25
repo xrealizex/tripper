@@ -32,7 +32,7 @@ const Login: NextPage = () => {
   const signInEmail = (): void => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        router.push('../posts/TripList');
+        router.push('../Main/TripLists');
         console.log('success');
       })
       .catch((error) => {
@@ -44,7 +44,7 @@ const Login: NextPage = () => {
   const signInGoogle = (): void => {
     signInWithPopup(auth, provider)
       .then(() => {
-        router.push('../posts/TripList');
+        router.push('../Main/TripLists');
         console.log('success');
       })
       .catch((error) => {

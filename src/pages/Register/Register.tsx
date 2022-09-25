@@ -24,7 +24,7 @@ import SendIcon from '@material-ui/icons/Send';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Register: NextPage = () => {
-  //state
+  //- state
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -68,10 +68,9 @@ const Register: NextPage = () => {
           photoUrl: url,
         }),
       );
-      () => {
-        router.push('../posts/TripList');
-        console.log('success');
-      };
+
+      router.push('/Main/TripLists');
+      console.log('success');
     } catch (err: unknown) {
       alert(`ログインに失敗しました。エラー内容${err}。`);
       console.log('error');
@@ -81,7 +80,7 @@ const Register: NextPage = () => {
   const signInGoogle = (): void => {
     signInWithPopup(auth, provider)
       .then(() => {
-        router.push('../posts/TripList');
+        router.push('../Main/TripLists');
         console.log('success');
       })
       .catch((err: unknown) => {
