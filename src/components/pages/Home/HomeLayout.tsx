@@ -2,10 +2,12 @@
 import { NextPage, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 //- 共通
 import { auth } from '../../../firebase';
+import { login } from '../../../userSlice';
 
 //- スタイル
 import styles from './HomeLayout.module.scss';
@@ -18,6 +20,7 @@ import SendIcon from '@mui/icons-material/Send';
 const HomeLayout: NextPage = () => {
   //- フレームワーク
   const router = useRouter();
+  const dispatch = useDispatch();
 
   //- 関数定義
   const onClickRegister = () => {
@@ -29,6 +32,21 @@ const HomeLayout: NextPage = () => {
   const onClickQuickStart = () => {
     router.push('../Main/TripLists');
   };
+
+  //ログイン管理
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(
+          login({
+            uid: user.uid,
+            displayName: user.displayName,
+            photoUrl: user.photoURL,
+          }),
+        );
+      }
+    });
+  }, []);
 
   return (
     <div className={styles.root}>
