@@ -68,7 +68,6 @@ const Register: NextPage = () => {
           photoUrl: url,
         }),
       );
-
       router.push('/Main/TripLists');
       console.log('success');
     } catch (err: unknown) {

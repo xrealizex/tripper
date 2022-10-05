@@ -9,6 +9,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 //- 共通
 import { auth, provider } from '../../firebase';
 import RegisterImage from '../../../public/images/register.jpg';
+import { login } from '../../userSlice';
 
 //- スタイル
 import styles from './Login.module.scss';
@@ -34,6 +35,7 @@ const Login: NextPage = () => {
       .then(() => {
         router.push('../Main/TripLists');
         console.log('success');
+        dispatch(login({}));
       })
       .catch((error) => {
         alert(`ログインに失敗しました。エラー内容${error}。`);
