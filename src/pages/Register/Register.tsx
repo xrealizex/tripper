@@ -1,6 +1,6 @@
 //- フレームワーク
 import { NextPage } from 'next';
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
@@ -13,6 +13,7 @@ import { updateUserProfile } from '../../userSlice';
 //- 共通
 import { auth, provider, storage } from '../../firebase';
 import RegisterImage from '../../../public/images/register.jpg';
+import { Router } from '../router/router';
 
 //- スタイル
 import styles from './Register.module.scss';
@@ -43,37 +44,38 @@ const Register: NextPage = () => {
   };
 
   const signUpEmail = async () => {
-    try {
-      const authUser = await createUserWithEmailAndPassword(auth, email, password);
-      let url = '';
-      if (avatarImage) {
-        const S = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        const N = 16;
-        const randomChar = Array.from(crypto.getRandomValues(new Uint32Array(N)))
-          .map((n) => S[n % S.length])
-          .join('');
-        const fileName = randomChar + '_' + avatarImage.name;
-        await uploadBytes(ref(storage, `avatars/${fileName}`), avatarImage);
-        url = await getDownloadURL(ref(storage, `avatars/${fileName}`));
-      }
-      if (authUser.user) {
-        await updateProfile(authUser.user, {
-          displayName: username,
-          photoURL: url,
-        });
-      }
-      dispatch(
-        updateUserProfile({
-          displayName: username,
-          photoUrl: url,
-        }),
-      );
-      router.push('/Main/TripLists');
-      console.log('success');
-    } catch (err: unknown) {
-      alert(`ログインに失敗しました。エラー内容${err}。`);
-      console.log('error');
+    let url = '';
+    if (avatarImage) {
+      const S = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      const N = 16;
+      const randomChar = Array.from(crypto.getRandomValues(new Uint32Array(N)))
+        .map((n) => S[n % S.length])
+        .join('');
+      const fileName = randomChar + '_' + avatarImage.name;
+      await uploadBytes(ref(storage, `avatars/${fileName}`), avatarImage);
+      url = await getDownloadURL(ref(storage, `avatars/${fileName}`));
     }
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        if (userCredential.user) {
+          updateProfile(userCredential.user, {
+            displayName: username,
+            photoURL: url,
+          });
+        }
+        dispatch(
+          updateUserProfile({
+            uid: userCredential.user.uid,
+            displayName: username,
+            photoUrl: url,
+          }),
+        );
+        router.push(Router.main.path);
+      })
+      .catch((error: unknown) => {
+        console.log(error);
+        alert('メンバー登録に失敗しました。');
+      });
   };
 
   const signInGoogle = (): void => {
