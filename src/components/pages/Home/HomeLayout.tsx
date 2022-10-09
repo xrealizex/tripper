@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 //- 共通
 import { auth } from '../../../firebase';
 import { login } from '../../../userSlice';
+import { Router } from '../../../pages/router/router';
 
 //- スタイル
 import styles from './HomeLayout.module.scss';
@@ -24,13 +25,13 @@ const HomeLayout: NextPage = () => {
 
   //- 関数定義
   const onClickRegister = () => {
-    router.push('../Register/Register');
+    router.push(Router.register.path);
   };
   const onClickLogin = () => {
-    router.push('../Login/Login');
+    router.push(Router.login.path);
   };
   const onClickQuickStart = () => {
-    router.push('../Main/TripLists');
+    router.push(Router.main.path);
   };
 
   //ログイン管理

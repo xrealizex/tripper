@@ -1,32 +1,39 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 
-interface User {
+type User = {
+  uid: string;
   displayName: string;
   photoUrl: string;
-}
+};
+
+const initialState: User = {
+  uid: '',
+  photoUrl: '',
+  displayName: '',
+};
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    user: { uid: '', photoUrl: '', displayName: '' },
-  },
+  initialState,
   reducers: {
     login: (state, action) => {
-      state.user = action.payload;
+      state = action.payload;
+      console.log(state, action);
     },
     logout: (state) => {
-      state.user = { uid: '', photoUrl: '', displayName: '' };
+      state = { uid: '', photoUrl: '', displayName: '' };
     },
     updateUserProfile: (state, action: PayloadAction<User>) => {
-      state.user.displayName = action.payload.displayName;
-      state.user.photoUrl = action.payload.photoUrl;
+      state.uid = action.payload.uid;
+      state.displayName = action.payload.displayName;
+      state.photoUrl = action.payload.photoUrl;
     },
   },
 });
 
 export const { login, logout, updateUserProfile } = userSlice.actions;
 
-export const selectUser = (state: RootState) => state.user.user;
+export const selectUser = (state: RootState) => state.user;
 
 export default userSlice.reducer;

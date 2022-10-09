@@ -9,7 +9,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 //- 共通
 import { auth, provider } from '../../firebase';
 import RegisterImage from '../../../public/images/register.jpg';
-import { login } from '../../userSlice';
+import { Router } from '../router/router';
 
 //- スタイル
 import styles from './Login.module.scss';
@@ -30,29 +30,35 @@ const Login: NextPage = () => {
   const dispatch = useDispatch();
 
   //- 関数定義
-  const signInEmail = (): void => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        router.push('../Main/TripLists');
-        console.log('success');
-        dispatch(login({}));
-      })
-      .catch((error) => {
-        alert(`ログインに失敗しました。エラー内容${error}。`);
-        console.log('error');
-      });
+  const signInEmail = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      await router.push(Router.main.path);
+      alert('ログインしました');
+    } catch (error: unknown) {
+      console.log(error);
+      alert('ログインに失敗しました');
+    }
   };
 
-  const signInGoogle = (): void => {
-    signInWithPopup(auth, provider)
-      .then(() => {
-        router.push('../Main/TripLists');
-        console.log('success');
-      })
-      .catch((error) => {
-        alert(`ログインに失敗しました。エラー内容${error}。`);
-        console.log('error');
-      });
+  const signInGoogle = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      await router.push(Router.main.path);
+      alert('ログインしました');
+    } catch (error: unknown) {
+      console.log(error);
+      alert('ログインに失敗しました');
+    }
+    // signInWithPopup(auth, provider)
+    //   .then(() => {
+    //     router.push('../Main/TripLists');
+    //     console.log('success');
+    //   })
+    //   .catch((error) => {
+    //     alert(`ログインに失敗しました。エラー内容${error}。`);
+    //     console.log('error');
+    //   });
   };
 
   return (
