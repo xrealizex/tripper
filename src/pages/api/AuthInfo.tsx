@@ -13,8 +13,8 @@ export const AuthInfo = () => {
         dispatch(
           updateUserProfile({
             uid: user.uid,
-            displayName: user.displayName,
-            photoUrl: user.photoURL,
+            displayName: user.displayName ?? '',
+            photoUrl: user.photoURL ?? '',
           }),
         );
       } else {

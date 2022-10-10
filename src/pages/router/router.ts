@@ -11,4 +11,8 @@ export const Router = {
     path: '../Login/Login',
     pageName: 'ログイン',
   },
+  logout: {
+    path: '/',
+    pageName: 'ログアウト',
+  },
 };
