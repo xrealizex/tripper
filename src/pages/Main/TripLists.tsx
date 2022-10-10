@@ -7,23 +7,19 @@ import { db } from '../../firebase';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import styles from './TripLists.module.scss';
 import IconImage from '../../../public/images/icon.jpg';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
+import { Router } from '../router/router';
+import { useRouter } from 'next/router';
+import AddTripPlan from '../../components/pages/TripList/AddTripPlan';
 
 const TripLists: NextPage = () => {
   //- state
   const [planTitle, setPlanTitle] = useState('');
-  const [posts, setPosts] = useState([
-    {
-      id: '',
-      avatar: '',
-      image: '',
-      timestamp: null,
-      username: '',
-    },
-  ]);
 
   //- フレームワーク
   const user = useSelector(selectUser);
+  const router = useRouter();
 
   //- 関数定義
   const postPlanTitle = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,36 +34,21 @@ const TripLists: NextPage = () => {
     setPlanTitle('');
   };
 
-  const auth = getAuth();
-  console.log('check');
-  const userInfo = auth.currentUser;
-  if (userInfo !== null) {
-    const photoURL = userInfo.photoURL;
-    console.log(photoURL);
-  }
-
-  // const getPosts = () => {
-  //   db.collection('posts')
-  //     .orderBy('timestamp', 'desc')
-  //     .onSnapshot((snapshot) =>
-  //       setPosts(
-  //         snapshot.docs.map((doc) => ({
-  //           id: doc.id,
-  //           avatar: doc.data().avatar,
-  //           image: doc.data().image,
-  //           text: doc.data().text,
-  //           timestamp: doc.data().timestamp,
-  //           username: doc.data().username,
-  //         })),
-  //       ),
-  //     );
-  // };
+  const logout = async () => {
+    try {
+      await signOut(auth);
+      router.push(Router.logout.path);
+      alert('ログアウトしました');
+    } catch (error: unknown) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={styles.root}>
       <form onSubmit={postPlanTitle}>
         <div className={styles.post_form}>
-          {/* <Avatar src={photoURL ?? IconImage} className={styles.user_avatar} /> */}
+          <Avatar src={user.photoUrl ?? IconImage} className={styles.user_avatar} />
           <input
             placeholder='京都旅行'
             type='text'
@@ -85,6 +66,8 @@ const TripLists: NextPage = () => {
           投稿する
         </Button>
       </form>
+      <AddTripPlan />
+      <Button onClick={logout}>ログアウト</Button>
     </div>
   );
 };
