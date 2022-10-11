@@ -19,7 +19,6 @@ export const userSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state = action.payload;
-      console.log(state, action);
     },
     logout: (state) => {
       state = { uid: '', photoUrl: '', displayName: '' };

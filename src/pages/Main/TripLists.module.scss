@@ -1,4 +1,8 @@
 .root {
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: -webkit-linear-gradient(top, rgba(251, 213, 251, 1), rgba(149, 233, 243, 1));
   .post_form {
     margin: 60px;
     position: relative;
@@ -7,13 +11,13 @@
     }
     .post_input {
       margin-left: 20px;
-      width: 60%;
-      background-color: #e1e1e1;
+      width: 50%;
+      background-color: white;
       padding: 15px;
       border-radius: 30px;
       outline: none;
       border: none;
-      color: #333333;
+      color: #f172a3;
       font-size: 18px;
     }
   }
@@ -21,21 +25,21 @@
     cursor: pointer;
     position: absolute;
     top: 80px;
-    background-color: #00bfff;
+    background-color: rgba(149, 233, 243, 1);
     border: none;
-    color: white;
+    color: #f172a3;
     font-weight: 800;
     text-transform: inherit;
     border-radius: 20px;
     width: 80px;
     height: 40px;
-    right: 40px;
+    right: 100px;
   }
   .post_sendDisableBtn {
     cursor: none;
     position: absolute;
     top: 80px;
-    background-color: gray;
+    background-color: white;
     border: none;
     color: white;
     font-weight: 800;
@@ -43,6 +47,6 @@
     border-radius: 30px;
     width: 80px;
     height: 40px;
-    right: 40px;
+    right: 100px;
   }
 }
