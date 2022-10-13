@@ -17,11 +17,12 @@ const AddTripPlan: FC = () => {
     getDocs(colRef)
       .then((snapshot) => {
         let posts: any = [];
-        snapshot.docs.forEach((doc) => {
+        snapshot.docs.map((doc) => {
+          console.log(snapshot.docs);
           posts.push({ ...doc.data(), id: doc.id });
           setTitle(posts[0].text);
         });
-        console.log(posts[0].text);
+        console.log(posts);
       })
 
       .catch((error: unknown) => {

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../userSlice';
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, addDoc, serverTimestamp, collection } from 'firebase/firestore';
 import styles from './TripLists.module.scss';
 import IconImage from '../../../public/images/icon.jpg';
 import { signOut } from 'firebase/auth';
@@ -24,7 +24,7 @@ const TripLists: NextPage = () => {
   //- 関数定義
   const postPlanTitle = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setDoc(doc(db, 'posts', 'title'), {
+    addDoc(collection(db, 'posts'), {
       avatar: user.photoUrl,
       image: '',
       text: planTitle,
