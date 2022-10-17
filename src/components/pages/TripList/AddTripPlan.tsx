@@ -1,7 +1,7 @@
 //- フレームワーク
 import React, { FC, useEffect, useState } from 'react';
 
-//- 共通
+//- firebase
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 
@@ -46,11 +46,16 @@ const AddTripPlan: FC = () => {
   }, []);
 
   return (
-    <>
+    <div>
       {isLoading && <p>...Loading</p>}
       {posts.length === 0 && <p>投稿がありません</p>}
-      <div>{posts.map((post) => post.text)}</div>;
-    </>
+      <div>
+        {posts.map((post) => {
+          return <p key={post.id}>{post.text}</p>;
+        })}
+      </div>
+      ;
+    </div>
   );
 };
 
