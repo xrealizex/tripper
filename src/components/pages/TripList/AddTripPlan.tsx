@@ -5,6 +5,9 @@ import React, { FC, useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebase';
 
+//- スタイル
+import styles from './AddTripPlan.module.scss';
+
 //型
 type Post = {
   id: string;
@@ -45,16 +48,25 @@ const AddTripPlan: FC = () => {
     getPosts();
   }, []);
 
+  const formattedTimestamp = (timestamp: any): string | null => {
+    if (!timestamp) return null;
+    return new Date(timestamp.toDate()).toLocaleString();
+  };
+
   return (
-    <div>
-      {isLoading && <p>...Loading</p>}
-      {posts.length === 0 && <p>投稿がありません</p>}
-      <div>
-        {posts.map((post) => {
-          return <p key={post.id}>{post.text}</p>;
-        })}
-      </div>
-      ;
+    <div className={styles.root}>
+      {isLoading && <p className={styles.loading}>...Loading</p>}
+      {posts.length === 0 && <p className={styles.none_text}>※投稿がありません</p>}
+      {posts.map((post) => {
+        return (
+          <>
+            <p key={post.id} className={styles.plan_name}>
+              {post.text}
+            </p>
+            <p className={styles.timestamp}>{formattedTimestamp(post.timestamp)}</p>
+          </>
+        );
+      })}
     </div>
   );
 };

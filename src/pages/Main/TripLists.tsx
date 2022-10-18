@@ -1,5 +1,5 @@
 //- フレームワーク
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
 
@@ -22,7 +22,6 @@ const TripLists: NextPage = () => {
   //- フレームワーク
   const router = useRouter();
 
-  //- 関数定義
   const logout = async () => {
     try {
       await signOut(auth);
