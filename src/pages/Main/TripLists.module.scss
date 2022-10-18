@@ -2,14 +2,15 @@
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  background: -webkit-linear-gradient(top, rgba(251, 213, 251, 1), rgba(149, 233, 243, 1));
+  background: -webkit-linear-gradient(top, rgba(216, 251, 217, 1), rgba(250, 251, 236, 1));
   .logout_btn {
     cursor: pointer;
     position: absolute;
     left: 50%;
+    bottom: 20%;
     border: none;
-    background-color: white;
-    color: #f172a3;
+    background-color: #a9d159;
+    color: white;
     font-weight: 800;
     text-transform: inherit;
     border-radius: 20px;
