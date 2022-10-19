@@ -1,15 +1,15 @@
 //- フレームワーク
 import { NextPage } from 'next';
 import React, { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 
 //- 共通
 import { auth, provider } from '../../firebase';
-import RegisterImage from '../../../public/images/register.jpg';
 import { Router } from '../router/router';
+// import RegisterImage from '../../../public/images/register.jpg';
 
 //- スタイル
 import styles from './Login.module.scss';
@@ -50,25 +50,16 @@ const Login: NextPage = () => {
       console.log(error);
       alert('ログインに失敗しました');
     }
-    // signInWithPopup(auth, provider)
-    //   .then(() => {
-    //     router.push('../Main/TripLists');
-    //     console.log('success');
-    //   })
-    //   .catch((error) => {
-    //     alert(`ログインに失敗しました。エラー内容${error}。`);
-    //     console.log('error');
-    //   });
   };
 
   return (
     <div className={styles.root}>
-      <Image
+      {/* <Image
         src={RegisterImage}
         alt='RegisterImage'
         objectFit='cover'
         className={styles.register_image}
-      />
+      /> */}
       <div className={styles.input_area}>
         <Typography component='h1' variant='h5' className={styles.title}>
           ユーザー情報入力

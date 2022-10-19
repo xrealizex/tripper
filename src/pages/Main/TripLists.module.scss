@@ -3,6 +3,22 @@
   min-height: 100vh;
   overflow: hidden;
   background: -webkit-linear-gradient(top, rgba(216, 251, 217, 1), rgba(250, 251, 236, 1));
+  .loading {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-size: x-large;
+    font-weight: 800;
+    color: #a9d159;
+  }
+  .none_text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    font-size: medium;
+    font-weight: 800;
+    color: #a9d159;
+  }
   .logout_btn {
     cursor: pointer;
     position: absolute;
