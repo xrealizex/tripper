@@ -1,18 +1,23 @@
 .root {
-  width: 100vw;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 20px;
   .plan_name {
-    width: 60%;
-    position: absolute;
-    left: 15%;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    font-size: x-large;
-    background-color: white;
+    display: inline-block;
+    background: orange;
+    color: white;
+    font-weight: 800;
+    padding: 10px;
     border: 1px solid #a9d159;
-    border-radius: 7px;
+    border-radius: 10px;
+    width: 100%;
   }
   .timestamp {
     width: 20%;
-    font-size: medium;
+    color: orange;
+    font-weight: 800;
+    font-size: small;
   }
 }
