@@ -1,24 +1,18 @@
 //- フレームワーク
-import React, { FC, useEffect, useState } from 'react';
-
-//- firebase
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../../firebase';
+import React, { FC } from 'react';
 
 //- スタイル
 import styles from './AddTripPlan.module.scss';
 
+import { Post } from '../../../types/Post';
+
 //型
 type Props = {
-  id: string;
-  text: string;
-  timestamp: string;
-  username: string;
-  avatar?: string;
-  image?: string;
+  post: Post;
 };
 
 const AddTripPlan: FC<Props> = (props) => {
+  const { post } = props;
   //- 関数定義
   const formattedTimestamp = (timestamp: any): string | null => {
     if (!timestamp) return null;
@@ -27,8 +21,8 @@ const AddTripPlan: FC<Props> = (props) => {
 
   return (
     <div className={styles.root}>
-      <p className={styles.plan_name}>{props.text}</p>
-      <p className={styles.timestamp}>{formattedTimestamp(props.timestamp)}</p>
+      <p className={styles.timestamp}>{formattedTimestamp(post.timestamp)}</p>
+      <p className={styles.plan_name}>{post.text}</p>
     </div>
   );
 };
