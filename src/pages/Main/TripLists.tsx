@@ -21,11 +21,13 @@ import { Button } from '@material-ui/core';
 
 //型
 import { Post } from '../../types/Post';
+import { truncate } from 'fs';
 
 const TripLists: NextPage = () => {
   //- state
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [show, setShow] = useState(false);
 
   //- フレームワーク
   const router = useRouter();
@@ -68,9 +70,17 @@ const TripLists: NextPage = () => {
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <PostForm />
+        {show && <PostForm />}
         {isLoading && <p className={styles.loading}>...Loading</p>}
         {posts.length === 0 && <p className={styles.none_text}>※投稿がありません</p>}
+        <Button
+          onClick={() => {
+            setShow(true);
+          }}
+          className={styles.post_btn}
+        >
+          投稿する
+        </Button>
         <div className={styles.gridContainer}>
           {posts.map((post) => (
             <AddTripPlan key={post.id} post={post} />
