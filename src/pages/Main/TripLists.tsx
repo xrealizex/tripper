@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { NextPage } from 'next';
+import { useSelector } from 'react-redux';
 
 //- firebase
 import { signOut } from 'firebase/auth';
@@ -12,16 +13,17 @@ import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import PostForm from '../../components/pages/TripList/PostForm';
 import AddTripPlan from '../../components/pages/TripList/AddTripPlan';
 import { Router } from '../router/router';
+import IconImage from '../../../public/images/icon.jpg';
+import { selectUser } from '../../userSlice';
 
 //- スタイル
 import styles from './TripLists.module.scss';
 
 //- MUI
-import { Button } from '@material-ui/core';
+import { Avatar, Button } from '@material-ui/core';
 
 //型
 import { Post } from '../../types/Post';
-import { truncate } from 'fs';
 
 const TripLists: NextPage = () => {
   //- state
@@ -31,6 +33,7 @@ const TripLists: NextPage = () => {
 
   //- フレームワーク
   const router = useRouter();
+  const user = useSelector(selectUser);
 
   //- 関数定義
   const getPosts = async (): Promise<void> => {
@@ -67,10 +70,15 @@ const TripLists: NextPage = () => {
     }
   };
 
+  const modalHandler = () => {
+    setShow(!show);
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        {show && <PostForm />}
+        <Avatar src={user.photoUrl ?? IconImage} />
+        {show && <PostForm modalHandler={modalHandler} />}
         {isLoading && <p className={styles.loading}>...Loading</p>}
         {posts.length === 0 && <p className={styles.none_text}>※投稿がありません</p>}
         <Button

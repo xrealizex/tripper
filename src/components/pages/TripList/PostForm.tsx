@@ -7,16 +7,23 @@ import { db } from '../../../firebase';
 import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
 
 //- 共通
-import IconImage from '../../../../public/images/icon.jpg';
 import { selectUser } from '../../../userSlice';
 
 //- スタイル
 import styles from './PostForm.module.scss';
 
 //- MUI
-import { Avatar, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
-const PostForm: FC = () => {
+//型
+type Props = {
+  modalHandler: () => void;
+};
+
+const PostForm: FC<Props> = (props) => {
+  //Props
+  const { modalHandler } = props;
+
   //- state
   const [planTitle, setPlanTitle] = useState('');
   const [planBody, setPlanBody] = useState('');
@@ -25,7 +32,7 @@ const PostForm: FC = () => {
   const user = useSelector(selectUser);
 
   //- 関数定義
-  const postPlanTitle = (e: React.FormEvent<HTMLFormElement>) => {
+  const postPlan = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addDoc(collection(db, 'posts'), {
       avatar: user.photoUrl,
@@ -36,30 +43,30 @@ const PostForm: FC = () => {
       username: user.displayName,
     });
     setPlanTitle('');
+    setPlanBody('');
   };
 
   return (
     <div className={styles.root}>
       <div className={styles.overlay}>
         <div className={styles.content}>
-          <form onSubmit={postPlanTitle}>
+          <form onSubmit={postPlan}>
             <div>
-              <Avatar src={user.photoUrl ?? IconImage} />
               <input
                 placeholder='京都旅行'
                 type='text'
                 autoFocus
                 value={planTitle}
                 onChange={(e) => setPlanTitle(e.target.value)}
-                className={styles.post_input}
+                className={styles.post_title}
               />
-              <input
+              <textarea
                 placeholder='本文'
-                type='text'
+                wrap='soft'
                 autoFocus
                 value={planBody}
                 onChange={(e) => setPlanBody(e.target.value)}
-                className={styles.post_input}
+                className={styles.post_body}
               />
             </div>
             <Button
@@ -69,7 +76,7 @@ const PostForm: FC = () => {
             >
               投稿する
             </Button>
-            <Button type='button' className={styles.close_button}>
+            <Button type='button' className={styles.close_button} onClick={modalHandler}>
               閉じる
             </Button>
           </form>
