@@ -77,18 +77,21 @@ const TripLists: NextPage = () => {
   return (
     <div className={styles.root}>
       <div className={styles.container}>
-        <Avatar src={user.photoUrl ?? IconImage} />
         {show && <PostForm modalHandler={modalHandler} />}
         {isLoading && <p className={styles.loading}>...Loading</p>}
         {posts.length === 0 && <p className={styles.none_text}>※投稿がありません</p>}
-        <Button
-          onClick={() => {
-            setShow(true);
-          }}
-          className={styles.post_btn}
-        >
-          投稿する
-        </Button>
+        <div className={styles.postGridContainer}>
+          <Avatar src={user.photoUrl ?? IconImage} className={styles.avatar} />
+          <Button
+            onClick={() => {
+              setShow(true);
+            }}
+            className={styles.post_btn}
+          >
+            投稿する
+          </Button>
+        </div>
+
         <div className={styles.gridContainer}>
           {posts.map((post) => (
             <AddTripPlan key={post.id} post={post} />
