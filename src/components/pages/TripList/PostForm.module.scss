@@ -69,8 +69,10 @@
         right: 100px;
       }
       .close_button {
-        justify-content: center;
-        font-weight: 600;
+        border: 1px solid #a9d159;
+        border-radius: 15px;
+        background-color: #a9d159;
+        color: white;
       }
     }
   }
