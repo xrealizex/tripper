@@ -1,8 +1,12 @@
 .root {
   min-height: 100vh;
   overflow: hidden;
-  background: -webkit-linear-gradient(top, rgba(216, 251, 217, 1), rgba(250, 251, 236, 1));
-
+  background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
+  .logo {
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
   .container {
     max-width: 1120px;
     margin: 0 auto;
@@ -12,7 +16,7 @@
       left: 50%;
       font-size: x-large;
       font-weight: 800;
-      color: #a9d159;
+      color: #007655;
     }
     .none_text {
       position: absolute;
@@ -20,7 +24,7 @@
       left: 50%;
       font-size: medium;
       font-weight: 800;
-      color: #a9d159;
+      color: #007655;
     }
     .postGridContainer {
       max-width: 720px;
@@ -29,7 +33,7 @@
       justify-content: space-between;
       .post_btn {
         font-size: medium;
-        background-color: #a9d159;
+        background-color: #13c716;
         color: white;
         border-radius: 20px;
         padding: 10px;
@@ -42,7 +46,7 @@
     left: 50%;
     bottom: 10%;
     border: none;
-    background-color: #a9d159;
+    background-color: #13c716;
     color: white;
     font-weight: 800;
     text-transform: inherit;
