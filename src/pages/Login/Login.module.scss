@@ -3,7 +3,7 @@
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background: -webkit-linear-gradient(top, rgba(253, 219, 146, 1), rgba(209, 253, 254, 1));
+  background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
   overflow: hidden;
   .register_image {
     position: absolute;
@@ -15,20 +15,23 @@
     display: flex;
     position: relative;
     justify-content: center;
-    background-color: #f0fff0;
+    background-color: white;
     position: absolute;
     top: 140px;
     left: 40%;
     width: 500px;
     height: 700px;
     border-radius: 20px;
+    border: 3px solid #13c716;
     .title {
       justify-content: center;
       position: absolute;
       top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: gray;
+      font-weight: bold;
+      font-family: sans-serif;
+      color: #13c716;
     }
     .username_area {
       justify-content: center;
@@ -36,7 +39,6 @@
       top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
       width: 75%;
       margin-bottom: 5px;
     }
@@ -46,7 +48,6 @@
       top: 45%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
       width: 75%;
     }
     .password_area {
@@ -55,7 +56,6 @@
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
       width: 75%;
     }
     .start_button {
@@ -64,7 +64,9 @@
       top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
+      color: #13c716;
+      font-size: large;
+      font-weight: bold;
       width: 75%;
     }
     .google_login_button {
@@ -73,8 +75,25 @@
       top: 82%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: blue;
+      color: #13c716;
+      font-size: large;
+      font-weight: bold;
       width: 75%;
+    }
+    .back_button {
+      cursor: pointer;
+      justify-content: center;
+      position: absolute;
+      top: 92%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #13c716;
+      color: white;
+      font-size: large;
+      font-weight: bold;
+      border-radius: 20px;
+      border: none;
+      width: 20%;
     }
   }
 }

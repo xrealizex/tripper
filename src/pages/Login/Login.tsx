@@ -27,7 +27,6 @@ const Login: NextPage = () => {
 
   //- フレームワーク
   const router = useRouter();
-  const dispatch = useDispatch();
 
   //- 関数定義
   const signInEmail = async () => {
@@ -52,14 +51,12 @@ const Login: NextPage = () => {
     }
   };
 
+  const backButton = () => {
+    router.push(Router.logout.path);
+  };
+
   return (
     <div className={styles.root}>
-      {/* <Image
-        src={RegisterImage}
-        alt='RegisterImage'
-        objectFit='cover'
-        className={styles.register_image}
-      /> */}
       <div className={styles.input_area}>
         <Typography component='h1' variant='h5' className={styles.title}>
           ユーザー情報入力
@@ -112,7 +109,7 @@ const Login: NextPage = () => {
           />
           <Button
             variant='contained'
-            color='primary'
+            color='inherit'
             endIcon={<SendIcon />}
             onClick={signInEmail}
             className={styles.start_button}
@@ -129,6 +126,9 @@ const Login: NextPage = () => {
           >
             Googleでログイン
           </Button>
+          <button onClick={backButton} className={styles.back_button}>
+            戻る
+          </button>
         </form>
       </div>
     </div>

@@ -76,6 +76,7 @@ const TripLists: NextPage = () => {
 
   return (
     <div className={styles.root}>
+      <span className={styles.logo}>Tripper</span>
       <div className={styles.container}>
         {show && <PostForm modalHandler={modalHandler} />}
         {isLoading && <p className={styles.loading}>...Loading</p>}
