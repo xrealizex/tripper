@@ -1,9 +1,8 @@
 //- フレームワーク
-import { NextPage } from 'next';
+import { NextPage, GetStaticProps } from 'next';
 import React, { useState } from 'react';
 // import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
 import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 
 //- 共通
@@ -134,4 +133,11 @@ const Login: NextPage = () => {
     </div>
   );
 };
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {},
+  };
+};
+
 export default Login;

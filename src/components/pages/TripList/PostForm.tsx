@@ -32,7 +32,7 @@ const PostForm: FC<Props> = (props) => {
   const user = useSelector(selectUser);
 
   //- 関数定義
-  const postPlan = (e: React.FormEvent<HTMLFormElement>) => {
+  const postPlan = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     addDoc(collection(db, 'posts'), {
       avatar: user.photoUrl,

@@ -1,6 +1,6 @@
 //- フレームワーク
-import { NextPage } from 'next';
-import React, { useId, useState } from 'react';
+import { NextPage, GetStaticProps } from 'next';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
@@ -190,4 +190,11 @@ const Register: NextPage = () => {
     </div>
   );
 };
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {},
+  };
+};
+
 export default Register;
