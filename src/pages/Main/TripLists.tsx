@@ -12,7 +12,7 @@ import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 //- 共通
 import PostForm from '../../components/pages/TripList/PostForm';
 import AddTripPlan from '../../components/pages/TripList/AddTripPlan';
-import { Router } from '../router/router';
+import { Router } from '../../router/router';
 import IconImage from '../../../public/images/icon.jpg';
 import { selectUser } from '../../userSlice';
 

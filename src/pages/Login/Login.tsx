@@ -8,7 +8,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 
 //- 共通
 import { auth, provider } from '../../firebase';
-import { Router } from '../router/router';
+import { Router } from '../../router/router';
 // import RegisterImage from '../../../public/images/register.jpg';
 
 //- スタイル

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 //- 共通
 import { auth } from '../../../firebase';
 import { login } from '../../../userSlice';
-import { Router } from '../../../pages/router/router';
+import { Router } from '../../../router/router';
 
 //- スタイル
 import styles from './HomeLayout.module.scss';

@@ -13,7 +13,7 @@ import { updateUserProfile } from '../../userSlice';
 //- 共通
 import { auth, provider, storage } from '../../firebase';
 import RegisterImage from '../../../public/images/register.jpg';
-import { Router } from '../router/router';
+import { Router } from '../../router/router';
 
 //- スタイル
 import styles from './Register.module.scss';
