@@ -31,7 +31,14 @@
       margin: 5% 0 5% 12%;
       display: flex;
       justify-content: space-between;
-      .post_btn {
+      .post_hiddenBtn {
+        font-size: medium;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgba(0, 0, 0, 0);
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .post_Btn {
         font-size: medium;
         background-color: #13c716;
         color: white;

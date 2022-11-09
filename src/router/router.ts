@@ -15,4 +15,8 @@ export const Router = {
     path: '/',
     pageName: 'ログアウト',
   },
+  id: {
+    path: '../Main/Plan/id',
+    pageName: 'id',
+  },
 };
