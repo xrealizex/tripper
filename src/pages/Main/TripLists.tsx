@@ -78,7 +78,7 @@ const TripLists: NextPage = () => {
     <div className={styles.root}>
       <span className={styles.logo}>Tripper</span>
       <div className={styles.container}>
-        {show && <PostForm modalHandler={modalHandler} />}
+        {show && <PostForm modalHandler={modalHandler} getPosts={getPosts} />}
         {isLoading && <p className={styles.loading}>...Loading</p>}
         {posts.length === 0 && <p className={styles.none_text}>※投稿がありません</p>}
         <div className={styles.postGridContainer}>
@@ -87,9 +87,9 @@ const TripLists: NextPage = () => {
             onClick={() => {
               setShow(true);
             }}
-            className={styles.post_btn}
+            className={show ? styles.post_hiddenBtn : styles.post_Btn}
           >
-            投稿する
+            投稿へ
           </Button>
         </div>
 

@@ -42,33 +42,22 @@
       }
       .post_sendBtn {
         cursor: pointer;
-        position: absolute;
-        top: 45px;
+        margin: 5px 10px 0 15px;
         background-color: #a9d159;
         border: 1px solid #a9d159;
         color: white;
-        font-weight: 800;
-        text-transform: inherit;
-        border-radius: 20px;
-        width: 80px;
-        height: 40px;
-        right: 100px;
+        border-radius: 15px;
       }
       .post_sendDisableBtn {
         cursor: none;
-        position: absolute;
-        top: 45px;
+        margin: 5px 10px 0 15px;
         background-color: white;
         border: 1px solid #a9d159;
-        color: white;
-        font-weight: 800;
-        text-transform: inherit;
-        border-radius: 30px;
-        width: 80px;
-        height: 40px;
-        right: 100px;
+        color: gray;
+        border-radius: 15px;
       }
       .close_button {
+        margin-top: 5px;
         border: 1px solid #a9d159;
         border-radius: 15px;
         background-color: #a9d159;

@@ -18,11 +18,12 @@ import { Button } from '@material-ui/core';
 //型
 type Props = {
   modalHandler: () => void;
+  getPosts: () => Promise<void>;
 };
 
 const PostForm: FC<Props> = (props) => {
   //Props
-  const { modalHandler } = props;
+  const { modalHandler, getPosts } = props;
 
   //- state
   const [planTitle, setPlanTitle] = useState('');
@@ -32,16 +33,21 @@ const PostForm: FC<Props> = (props) => {
   const user = useSelector(selectUser);
 
   //- 関数定義
-  const postPlan = (e: React.FormEvent<HTMLFormElement>): void => {
+  const postPlan = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    addDoc(collection(db, 'posts'), {
-      avatar: user.photoUrl,
-      image: '',
-      text: planTitle,
-      body: planBody,
-      timestamp: serverTimestamp(),
-      username: user.displayName,
-    });
+    try {
+      addDoc(collection(db, 'posts'), {
+        avatar: user.photoUrl,
+        image: '',
+        text: planTitle,
+        body: planBody,
+        timestamp: serverTimestamp(),
+        username: user.displayName,
+      });
+      getPosts();
+    } catch (error: unknown) {
+      console.log(error);
+    }
     setPlanTitle('');
     setPlanBody('');
   };
