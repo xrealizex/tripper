@@ -29,7 +29,7 @@ const AddTripPlan: FC<Props> = (props) => {
   };
 
   const clickHandler = () => {
-    router.push(Router.id.path);
+    router.push(`Main/Plan/${post.id}`);
   };
 
   return (
