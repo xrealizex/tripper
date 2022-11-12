@@ -78,9 +78,11 @@ const TripLists: NextPage = () => {
     <div className={styles.root}>
       <span className={styles.logo}>Tripper</span>
       <div className={styles.container}>
-        {show && <PostForm modalHandler={modalHandler} getPosts={getPosts} />}
+        {show && <PostForm modalHandler={modalHandler} getPosts={getPosts} setShow={setShow} />}
         {isLoading && <p className={styles.loading}>...Loading</p>}
-        {posts.length === 0 && <p className={styles.none_text}>※投稿がありません</p>}
+        {posts.length === 0 && (
+          <p className={show ? styles.hidden_none_tex : styles.none_text}>※投稿がありません</p>
+        )}
         <div className={styles.postGridContainer}>
           <Avatar src={user.photoUrl ?? IconImage} className={styles.avatar} />
           <Button

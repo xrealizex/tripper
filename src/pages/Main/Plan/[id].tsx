@@ -1,43 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { NextPage } from 'next';
-import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 //- firebase
 import { db } from '../../../firebase';
-import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { doc, getDoc, DocumentData } from 'firebase/firestore';
 
 //- 共通
-
-import { selectUser } from '../../../userSlice';
+import { Router } from '../../../router/router';
 
 //- スタイル
 
-//- MUI
-
-//型
-import { Post } from '../../../types/Post';
-
 const Plan: NextPage = () => {
   //- state
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [post, setPost] = useState<DocumentData>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [show, setShow] = useState(false);
 
   //- フレームワーク
-  const user = useSelector(selectUser);
+  const router = useRouter();
+
   //- 関数定義
-  const getPosts = async (): Promise<void> => {
+  const planId = router.query.id;
+
+  const getPost = async (): Promise<void> => {
     setIsLoading(true);
     try {
-      const colRef = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
-      const snapshot = await getDocs(colRef);
-      const posts: Post[] = [];
-      snapshot.docs.forEach((doc) => {
-        const data: Post = doc.data() as Post;
-        const addPostData: Post = { ...data, id: doc.id };
-        posts.push(addPostData);
-      });
-      setPosts(posts);
+      const docRef = doc(db, 'posts', `${planId}`);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setPost(data);
+      } else {
+        console.log('No such document!');
+      }
     } catch (error: unknown) {
       alert(`エラーが発生しました。エラー内容：${error}`);
       console.log(error);
@@ -47,10 +42,28 @@ const Plan: NextPage = () => {
   };
 
   useEffect(() => {
-    getPosts();
+    getPost();
   }, []);
 
-  return <div>idページです。</div>;
+  const backButton = () => {
+    router.push(Router.backToMain.path);
+  };
+
+  return (
+    <div>
+      {isLoading && <p>...Loading</p>}
+      {post?.length === 0 && <p>※投稿がありません</p>}
+      {post ? (
+        <>
+          <div>{post.text}</div>
+          <div>{post.body}</div>
+        </>
+      ) : (
+        <p>No Data</p>
+      )}
+      <button onClick={backButton}>戻る</button>
+    </div>
+  );
 };
 
 export default Plan;

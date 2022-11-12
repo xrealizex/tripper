@@ -6,8 +6,6 @@ import { useRouter } from 'next/router';
 import styles from './AddTripPlan.module.scss';
 
 //- 共通
-import { Router } from '../../../router/router';
-
 import { Post } from '../../../types/Post';
 
 //型
@@ -29,7 +27,7 @@ const AddTripPlan: FC<Props> = (props) => {
   };
 
   const clickHandler = () => {
-    router.push(`Main/Plan/${post.id}`);
+    router.push(`../Main/Plan/${post.id}`);
   };
 
   return (
