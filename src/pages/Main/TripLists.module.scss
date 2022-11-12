@@ -26,6 +26,14 @@
       font-weight: 800;
       color: #007655;
     }
+    .hidden_none_text {
+      background-color: rgba(0, 0, 0, 0);
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      font-size: medium;
+      font-weight: 800;
+    }
     .postGridContainer {
       max-width: 720px;
       margin: 5% 0 5% 12%;

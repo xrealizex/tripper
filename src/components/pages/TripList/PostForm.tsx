@@ -1,6 +1,7 @@
 //- フレームワーク
 import React, { useState, FC } from 'react';
 import { useSelector } from 'react-redux';
+import { Dispatch, SetStateAction } from 'react';
 
 //- firebase
 import { db } from '../../../firebase';
@@ -15,15 +16,15 @@ import styles from './PostForm.module.scss';
 //- MUI
 import { Button } from '@material-ui/core';
 
-//型
 type Props = {
   modalHandler: () => void;
   getPosts: () => Promise<void>;
+  setShow: Dispatch<SetStateAction<boolean>>;
 };
 
 const PostForm: FC<Props> = (props) => {
   //Props
-  const { modalHandler, getPosts } = props;
+  const { modalHandler, getPosts, setShow } = props;
 
   //- state
   const [planTitle, setPlanTitle] = useState('');
@@ -50,6 +51,7 @@ const PostForm: FC<Props> = (props) => {
     }
     setPlanTitle('');
     setPlanBody('');
+    setShow(false);
   };
 
   return (

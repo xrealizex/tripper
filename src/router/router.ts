@@ -19,4 +19,8 @@ export const Router = {
     path: '../Main/Plan/id',
     pageName: 'id',
   },
+  backToMain: {
+    path: '../TripLists',
+    pageName: 'メインページ',
+  },
 };
