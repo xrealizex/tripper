@@ -1,0 +1,31 @@
+.root {
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+    .loading {
+      font-size: x-large;
+      font-weight: 800;
+      color: #007655;
+    }
+    .plan_title {
+      margin-top: 10%;
+      font-size: xx-large;
+      color: #007655;
+    }
+    .plan_body {
+      font-size: large;
+      color: #007655;
+      margin-top: 5%;
+    }
+    .back_button {
+      cursor: pointer;
+      font-size: larger;
+      background-color: #13c716;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 5px 15px;
+    }
+  }
+}
