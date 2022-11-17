@@ -92,7 +92,7 @@ const Plan: NextPage = () => {
               className={comment ? styles.comment_button : styles.comment_disable_button}
               type='submit'
             >
-              コメントを送信
+              送信
             </button>
           </div>
         </form>

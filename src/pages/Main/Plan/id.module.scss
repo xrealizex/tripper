@@ -27,5 +27,35 @@
       border-radius: 20px;
       padding: 5px 15px;
     }
+    .comment_form {
+      margin: 5% 0 2% 0;
+      .comment_input {
+        font-size: medium;
+        font-weight: 100;
+        width: 25%;
+        height: 35px;
+        border-radius: 20px;
+        border: 1px solid #a9d159;
+        margin-right: 20px;
+        color: #aaa;
+      }
+      .comment_disable_button {
+        font-size: medium;
+        width: 70px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        color: #a9d159;
+      }
+      .comment_button {
+        font-size: medium;
+        width: 70px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #a9d159;
+        color: white;
+        border: none;
+      }
+    }
   }
 }
