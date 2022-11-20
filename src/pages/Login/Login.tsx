@@ -14,7 +14,7 @@ import { Router } from '../../router/router';
 import styles from './Login.module.scss';
 
 //- MUI
-import { Button, TextField, Typography, IconButton, Box } from '@material-ui/core';
+import { Button, TextField, Typography } from '@material-ui/core';
 import CameraIcon from '@material-ui/icons/Camera';
 import SendIcon from '@material-ui/icons/Send';
 
@@ -134,10 +134,10 @@ const Login: NextPage = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  return {
-    props: {},
-  };
-};
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   return {
+//     props: {},
+//   };
+// };
 
 export default Login;
