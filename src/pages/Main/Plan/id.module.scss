@@ -1,4 +1,8 @@
 .root {
+  width: 100vw;
+  min-height: 100vh;
+  background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
+  overflow: hidden;
   .container {
     max-width: 1120px;
     margin: 0 auto;
@@ -9,53 +13,103 @@
       color: #007655;
     }
     .plan_title {
+      width: 60%;
+      margin: 0 auto;
       margin-top: 10%;
+      padding: 10px;
+      border-radius: 15px;
       font-size: xx-large;
+      font-weight: bold;
       color: #007655;
+      border: 3px solid #a9d159;
     }
     .plan_body {
-      font-size: large;
+      width: 80%;
+      margin: 0 auto;
+      font-size: x-large;
       color: #007655;
       margin-top: 5%;
     }
+
+    .comment_open_container {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0 10px 0;
+      .comment_open_icon {
+        cursor: pointer;
+        margin-right: 5px;
+      }
+      .comment_open_text {
+        font-size: medium;
+        color: gray;
+      }
+    }
+
+    .comment_and_form_container {
+      width: 70%;
+      margin: 0 auto;
+      padding: 15px;
+      border: 3px double #13c716;
+      border-radius: 15px;
+      .comment_container {
+        display: flex;
+        justify-content: flex-start;
+        margin: 20px;
+        .comment_user {
+          font-size: larger;
+          color: #13c716;
+        }
+        .comment_text {
+          font-size: larger;
+          margin-left: 20px;
+        }
+        .comment_time {
+          font-size: small;
+          color: #aaa;
+          margin-left: 20px;
+        }
+      }
+      .comment_form {
+        margin: 5% 0 2% 0;
+        .comment_input {
+          font-size: medium;
+          font-weight: 100;
+          width: 50%;
+          height: 35px;
+          border-radius: 20px;
+          border: 1px solid #a9d159;
+          margin-right: 20px;
+          color: #aaa;
+        }
+        .comment_disable_button {
+          font-size: medium;
+          width: 70px;
+          height: 40px;
+          border-radius: 20px;
+          border: none;
+          color: #a9d159;
+        }
+        .comment_button {
+          font-size: medium;
+          width: 70px;
+          height: 40px;
+          border-radius: 20px;
+          background-color: #a9d159;
+          color: white;
+          border: none;
+        }
+      }
+    }
+
     .back_button {
       cursor: pointer;
       font-size: larger;
       background-color: #13c716;
       color: white;
+      margin-top: 20px;
       border: none;
       border-radius: 20px;
       padding: 5px 15px;
-    }
-    .comment_form {
-      margin: 5% 0 2% 0;
-      .comment_input {
-        font-size: medium;
-        font-weight: 100;
-        width: 25%;
-        height: 35px;
-        border-radius: 20px;
-        border: 1px solid #a9d159;
-        margin-right: 20px;
-        color: #aaa;
-      }
-      .comment_disable_button {
-        font-size: medium;
-        width: 70px;
-        height: 40px;
-        border-radius: 20px;
-        border: none;
-        color: #a9d159;
-      }
-      .comment_button {
-        font-size: medium;
-        width: 70px;
-        height: 40px;
-        border-radius: 20px;
-        background-color: #a9d159;
-        color: white;
-        border: none;
-      }
     }
   }
 }
