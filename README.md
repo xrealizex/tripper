@@ -10,9 +10,9 @@ https://tripper-9fc71.firebaseapp.com/
 
 # 機能一覧
 ***
-・会員登録機能(Email　&　password/Google認証/ユーザー名/アイコン画像)
+・会員登録機能(Email/password/Google認証/ユーザー名/アイコン画像)
 
-・ログイン機能(Email　&　password/Google認証)
+・ログイン機能(Email/password/Google認証)
 
 ・ログアウト機能
 
