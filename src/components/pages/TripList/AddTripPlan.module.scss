@@ -3,7 +3,7 @@
   grid-template-columns: 200px 1fr;
   align-items: center;
   flex-wrap: wrap;
-  column-gap: 20px;
+  column-gap: 10px;
   .plan_name {
     cursor: pointer;
     display: inline-block;
@@ -12,12 +12,36 @@
     padding: 10px;
     border: 3px double #007655;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
   }
   .timestamp {
-    width: 20%;
     color: black;
-    font-size: small;
+    font-size: medium;
     font-family: sans-serif;
+  }
+}
+
+@media (max-width: 600px) {
+  .root {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 2%;
+    .plan_name {
+      cursor: pointer;
+      display: inline-block;
+      color: #007655;
+      font-weight: 800;
+      padding: 10px;
+      border: 3px double #007655;
+      border-radius: 10px;
+      width: 90%;
+    }
+    .timestamp {
+      color: black;
+      font-size: small;
+      font-family: sans-serif;
+    }
   }
 }

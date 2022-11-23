@@ -57,10 +57,9 @@ const Login: NextPage = () => {
   return (
     <div className={styles.root}>
       <div className={styles.input_area}>
-        <Typography component='h1' variant='h5' className={styles.title}>
-          ユーザー情報入力
-        </Typography>
-        <form noValidate>
+        <h2 className={styles.title}>ユーザー情報入力</h2>
+        {/* <form noValidate> */}
+        <form className={styles.form}>
           <TextField
             margin='normal'
             required
