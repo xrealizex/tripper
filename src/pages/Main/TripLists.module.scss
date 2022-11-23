@@ -1,7 +1,8 @@
 .root {
   min-height: 100vh;
-  overflow: hidden;
+  max-width: 100vw;
   background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
+  overflow: hidden;
   .logo {
     cursor: pointer;
     font-size: x-large;
@@ -44,29 +45,33 @@
         font-size: medium;
         background-color: rgba(0, 0, 0, 0);
         color: rgba(0, 0, 0, 0);
-        border-radius: 20px;
         padding: 10px;
+        width: 85px;
+        border: none;
       }
       .post_Btn {
+        cursor: pointer;
         font-size: medium;
         background-color: #13c716;
         color: white;
         border-radius: 20px;
         padding: 10px;
+        width: 85px;
+        border: none;
       }
     }
   }
   .logout_btn {
     cursor: pointer;
-    position: absolute;
-    left: 50%;
+    display: block;
+    margin: auto;
     bottom: 10%;
     border: none;
     background-color: #13c716;
     color: white;
-    font-weight: 800;
-    text-transform: inherit;
+    font-weight: bold;
     border-radius: 20px;
     width: 100px;
+    padding: 10px;
   }
 }

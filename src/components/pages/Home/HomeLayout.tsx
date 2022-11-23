@@ -51,36 +51,31 @@ const HomeLayout: NextPage = () => {
 
   return (
     <div className={styles.root}>
-      <Image src={EntranceImage} alt='EntranceImage' className={styles.home_image} />
-      <div className={styles.logo}>Tripper</div>
-      <Button
-        variant='contained'
-        size='medium'
-        onClick={onClickLogin}
-        className={styles.login_button}
-      >
-        ログイン
-      </Button>
+      <Image
+        src={EntranceImage}
+        alt='EntranceImage'
+        layout={'fill'}
+        objectFit={'cover'}
+        className={styles.home_image}
+      />
+      <header className={styles.header_container}>
+        <div className={styles.logo}>Tripper</div>
+        <Button variant='contained' onClick={onClickLogin} className={styles.login_button}>
+          ログイン
+        </Button>
+      </header>
+
       <div className={styles.home_text}>
-        <h1>旅を共有して、いろいろな旅を知ろう</h1>
+        <h1 className={styles.title}>旅を共有して、いろいろな旅を知ろう</h1>
       </div>
-      <Button
-        variant='contained'
-        endIcon={<SendIcon />}
-        size='large'
-        onClick={onClickRegister}
-        className={styles.register_button}
-      >
-        メンバーになってはじめる
-      </Button>
-      <Button
-        variant='contained'
-        endIcon={<SendIcon />}
-        onClick={onClickQuickStart}
-        className={styles.start_button}
-      >
-        いますぐはじめる
-      </Button>
+      <div className={styles.button_container}>
+        <Button variant='contained' onClick={onClickRegister} className={styles.register_button}>
+          メンバーになる
+        </Button>
+        <Button variant='contained' onClick={onClickQuickStart} className={styles.start_button}>
+          いますぐはじめる
+        </Button>
+      </div>
     </div>
   );
 };

@@ -87,14 +87,14 @@ const TripLists: NextPage = () => {
         )}
         <div className={styles.postGridContainer}>
           <Avatar src={user.photoUrl ?? IconImage} className={styles.avatar} />
-          <Button
+          <button
             onClick={() => {
               setShow(true);
             }}
             className={show ? styles.post_hiddenBtn : styles.post_Btn}
           >
             投稿へ
-          </Button>
+          </button>
         </div>
 
         <div className={styles.gridContainer}>
@@ -102,9 +102,9 @@ const TripLists: NextPage = () => {
             <AddTripPlan key={post.id} post={post} />
           ))}
         </div>
-        <Button onClick={logout} className={styles.logout_btn}>
+        <button onClick={logout} className={styles.logout_btn}>
           ログアウト
-        </Button>
+        </button>
       </div>
     </div>
   );

@@ -1,99 +1,134 @@
 .root {
-  display: flex;
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
+  max-width: 100%;
   background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
   overflow: hidden;
-  .register_image {
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-  }
   .input_area {
-    display: flex;
-    position: relative;
-    justify-content: center;
+    max-width: 1300px;
+    margin: 20% auto;
     background-color: white;
-    position: absolute;
-    top: 140px;
-    left: 40%;
-    width: 500px;
-    height: 700px;
+    width: 50%;
+    height: 70%;
     border-radius: 20px;
     border: 3px solid #13c716;
     .title {
-      justify-content: center;
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      text-align: center;
       font-weight: bold;
       font-family: sans-serif;
+      margin-top: 20%;
       color: #13c716;
     }
-    .username_area {
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 75%;
-      margin-bottom: 5px;
+      margin-top: 10%;
+      .username_area {
+        width: 70%;
+      }
+      .email_area {
+        width: 70%;
+        margin-top: 5%;
+      }
+      .password_area {
+        width: 70%;
+        margin-top: 5%;
+      }
+      .start_button {
+        color: #13c716;
+        font-size: large;
+        font-weight: bold;
+        margin-top: 10%;
+        width: 70%;
+      }
+      .google_login_button {
+        color: #13c716;
+        font-size: large;
+        font-weight: bold;
+        margin-top: 10%;
+        width: 70%;
+      }
+      .back_button {
+        cursor: pointer;
+        background-color: #13c716;
+        color: white;
+        font-size: large;
+        font-weight: bold;
+        margin: 10% auto;
+        padding: 1%;
+        border-radius: 20px;
+        border: none;
+        width: 100px;
+      }
     }
-    .email_area {
-      justify-content: center;
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 75%;
-    }
-    .password_area {
-      justify-content: center;
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 75%;
-    }
-    .start_button {
-      justify-content: center;
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #13c716;
-      font-size: large;
-      font-weight: bold;
-      width: 75%;
-    }
-    .google_login_button {
-      justify-content: center;
-      position: absolute;
-      top: 82%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #13c716;
-      font-size: large;
-      font-weight: bold;
-      width: 75%;
-    }
-    .back_button {
-      cursor: pointer;
-      justify-content: center;
-      position: absolute;
-      top: 92%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #13c716;
-      color: white;
-      font-size: large;
-      font-weight: bold;
+  }
+}
+
+@media (max-width: 600px) {
+  .root {
+    min-height: 100%;
+    max-width: 100%;
+    background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
+    overflow: hidden;
+    .input_area {
+      max-width: 600px;
+      align-items: center;
+      background-color: white;
+      width: 90%;
       border-radius: 20px;
-      border: none;
-      width: 20%;
+      border: 3px solid #13c716;
+      .title {
+        text-align: center;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-top: 20%;
+        color: #13c716;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10%;
+        .username_area {
+          width: 80%;
+        }
+        .email_area {
+          width: 80%;
+          margin-top: 5%;
+        }
+        .password_area {
+          width: 80%;
+          margin-top: 5%;
+        }
+        .start_button {
+          color: #13c716;
+          font-size: large;
+          font-weight: bold;
+          margin-top: 10%;
+          width: 80%;
+        }
+        .google_login_button {
+          color: #13c716;
+          font-size: large;
+          font-weight: bold;
+          margin-top: 10%;
+          width: 80%;
+        }
+        .back_button {
+          cursor: pointer;
+          background-color: #13c716;
+          color: white;
+          font-size: large;
+          font-weight: bold;
+          margin: 10% auto;
+          padding: 1%;
+          border-radius: 20px;
+          border: none;
+          width: 100px;
+        }
+      }
     }
   }
 }
