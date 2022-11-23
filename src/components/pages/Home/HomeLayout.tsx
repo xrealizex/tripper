@@ -14,7 +14,7 @@ import { Router } from '../../../router/router';
 import styles from './HomeLayout.module.scss';
 import EntranceImage from '../../../../public/images/entrance.jpg';
 
-//- MUI
+//- MUI;
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 

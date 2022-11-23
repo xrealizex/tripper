@@ -1,0 +1,13 @@
+{
+  "/_error": "pages/_error.js",
+  "/_app": "pages/_app.js",
+  "/Main/Plan/[id]": "pages/Main/Plan/[id].html",
+  "/Main/TripLists": "pages/Main/TripLists.html",
+  "/api/AuthInfo": "pages/api/AuthInfo.js",
+  "/api/hello": "pages/api/hello.js",
+  "/": "pages/index.html",
+  "/Login/Login": "pages/Login/Login.html",
+  "/Register/Register": "pages/Register/Register.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
