@@ -41,6 +41,9 @@
       margin: 5% 0 5% 12%;
       display: flex;
       justify-content: space-between;
+      .avatar {
+        z-index: -2;
+      }
       .post_hiddenBtn {
         font-size: medium;
         background-color: rgba(0, 0, 0, 0);
