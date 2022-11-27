@@ -6,7 +6,7 @@
 
 # URL
 ***
-https://tripper-9fc71.firebaseapp.com/
+https://tripper-phi.vercel.app/
 
 # 機能一覧
 ***
