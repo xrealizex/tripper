@@ -157,15 +157,18 @@ const Plan: NextPage = () => {
         {openComments && (
           <div className={styles.comment_and_form_container}>
             {comments.map((com) => (
-              <div key={com.id} className={styles.comment_container}>
-                <Avatar src={com.avatar} className={classes.small} />
-                <span className={styles.comment_user}>@{com.username}</span>
+              <>
+                <div key={com.id} className={styles.comment_container}>
+                  <Avatar src={com.avatar} className={classes.small} />
+                  <span className={styles.comment_user}>@{com.username}</span>
+                  <span className={styles.comment_time}>
+                    {com.timestamp && formattedTimestamp(com.timestamp)}
+                  </span>
+                </div>
                 <span className={styles.comment_text}>{com.text} </span>
-                <span className={styles.comment_time}>
-                  {com.timestamp && formattedTimestamp(com.timestamp)}
-                </span>
-              </div>
+              </>
             ))}
+
             <form onSubmit={newComment}>
               <div className={styles.comment_form}>
                 <input

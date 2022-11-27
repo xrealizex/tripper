@@ -59,22 +59,24 @@
           font-size: larger;
           color: #13c716;
         }
-        .comment_text {
-          font-size: larger;
-          margin-left: 20px;
-        }
         .comment_time {
           font-size: small;
           color: #aaa;
           margin-left: 20px;
         }
       }
+      .comment_text {
+        display: flex;
+        font-size: larger;
+        justify-content: flex-start;
+        margin-left: 20px;
+      }
       .comment_form {
         margin: 5% 0 2% 0;
         .comment_input {
-          font-size: medium;
+          font-size: larger;
           font-weight: 100;
-          width: 50%;
+          width: 70%;
           height: 35px;
           border-radius: 20px;
           border: 1px solid #a9d159;
@@ -84,7 +86,7 @@
         .comment_disable_button {
           font-size: medium;
           width: 70px;
-          height: 40px;
+          height: 35px;
           border-radius: 20px;
           border: none;
           color: #a9d159;
@@ -92,7 +94,7 @@
         .comment_button {
           font-size: medium;
           width: 70px;
-          height: 40px;
+          height: 35px;
           border-radius: 20px;
           background-color: #a9d159;
           color: white;
@@ -130,7 +132,7 @@
         color: #007655;
       }
       .plan_title {
-        width: 60%;
+        width: 80%;
         margin: 0 auto;
         margin-top: 10%;
         padding: 10px;
@@ -141,13 +143,12 @@
         border: 3px solid #a9d159;
       }
       .plan_body {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
-        font-size: x-large;
+        font-size: larger;
         color: #007655;
         margin-top: 5%;
       }
-
       .comment_open_container {
         display: flex;
         justify-content: center;
@@ -163,7 +164,7 @@
       }
 
       .comment_and_form_container {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
         padding: 15px;
         border: 3px double #13c716;
@@ -173,44 +174,44 @@
           justify-content: flex-start;
           margin: 20px;
           .comment_user {
-            font-size: larger;
+            font-size: small;
             color: #13c716;
           }
-          .comment_text {
-            font-size: larger;
-            margin-left: 20px;
-          }
           .comment_time {
-            font-size: small;
+            font-size: xx-small;
             color: #aaa;
             margin-left: 20px;
           }
+        }
+        .comment_text {
+          font-size: larger;
+          margin-left: 20px;
         }
         .comment_form {
           margin: 5% 0 2% 0;
           .comment_input {
             font-size: medium;
             font-weight: 100;
-            width: 50%;
+            width: 70%;
             height: 35px;
-            border-radius: 20px;
+            border-radius: 15px;
             border: 1px solid #a9d159;
             margin-right: 20px;
             color: #aaa;
           }
           .comment_disable_button {
             font-size: medium;
-            width: 70px;
-            height: 40px;
-            border-radius: 20px;
+            width: 50px;
+            height: 35px;
+            border-radius: 15px;
             border: none;
             color: #a9d159;
           }
           .comment_button {
             font-size: medium;
-            width: 70px;
-            height: 40px;
-            border-radius: 20px;
+            width: 50px;
+            height: 35px;
+            border-radius: 15px;
             background-color: #a9d159;
             color: white;
             border: none;
