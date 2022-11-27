@@ -42,6 +42,9 @@
       display: flex;
       justify-content: space-between;
       .avatar {
+        z-index: 1;
+      }
+      .hidden_avatar {
         z-index: -2;
       }
       .post_hiddenBtn {
