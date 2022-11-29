@@ -31,13 +31,13 @@ https://tripper-phi.vercel.app/
 
 ・SCSS
 
-・TyoeScript
+・TypeScript
 
 ・MUI
 
 ## バックエンド
 ***
-・firebase(9.9.4)
+・Firebase(9.9.4)
 
 ## フレームワーク
 ***
