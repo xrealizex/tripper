@@ -1,108 +1,178 @@
 .root {
-  display: flex;
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  .register_image {
-    position: absolute;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.7;
-  }
+  min-height: 100%;
+  max-width: 100%;
+  background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
+  overflow: hidden;
   .input_area {
-    display: flex;
-    position: relative;
-    justify-content: center;
+    max-width: 1300px;
+    margin: 20% auto;
     background-color: white;
-    position: absolute;
-    top: 140px;
-    left: 40%;
-    width: 500px;
-    height: 700px;
-    .title {
+    width: 50%;
+    border-radius: 20px;
+    border: 3px solid #13c716;
+    .container {
+      display: flex;
+      align-items: center;
       justify-content: center;
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: gray;
-    }
-    .add_image_button {
-      justify-content: center;
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      .login_addIconLoaded {
-        cursor: pointer;
-        color: whitesmoke;
+      flex-direction: column;
+      .title {
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-top: 20%;
+        color: #13c716;
       }
-      .login_addIcon {
-        cursor: pointer;
-        color: gray;
+      .add_image_button {
+        margin-top: 10%;
+        .login_addIconLoaded {
+          cursor: pointer;
+          color: #13c716;
+        }
+        .login_addIcon {
+          cursor: pointer;
+          color: whitesmoke;
+        }
+        .file_submit_icon {
+          cursor: pointer;
+          color: green;
+        }
+        .file_submitted_icon {
+          cursor: pointer;
+          color: white;
+        }
       }
-      .login_hiddenIcon {
-        text-align: center;
-        display: none;
+      .add_image_text {
+        font-size: small;
+        color: #13c716;
+      }
+      .form_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .username_area {
+          margin-top: 10%;
+          width: 70%;
+        }
+        .email_area {
+          margin-top: 5%;
+          width: 70%;
+        }
+        .password_area {
+          margin-top: 5%;
+          width: 70%;
+        }
+        .start_button {
+          margin: 5% 0;
+          font-weight: bold;
+          background-color: #13c716;
+          color: white;
+          width: 200px;
+          border-radius: 20px;
+          border: none;
+        }
+        .back_button {
+          cursor: pointer;
+          background-color: #13c716;
+          color: white;
+          font-size: large;
+          font-weight: bold;
+          margin: 0 auto 10%;
+          padding: 1%;
+          border-radius: 20px;
+          border: none;
+          width: 200px;
+        }
       }
     }
-    .add_image_text {
-      justify-content: center;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: small;
-      color: gray;
-    }
-    .username_area {
-      justify-content: center;
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .root {
+    min-height: 100%;
+    max-width: 100%;
+    background: -webkit-linear-gradient(top, rgba(254, 249, 249, 1), rgba(242, 234, 234, 1));
+    overflow: hidden;
+    .input_area {
+      max-width: 600px;
       background-color: white;
-      color: white;
-      width: 75%;
-      margin-bottom: 5px;
-    }
-    .email_area {
-      justify-content: center;
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      color: white;
-      width: 75%;
-    }
-    .password_area {
-      justify-content: center;
-      position: absolute;
-      top: 65%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      color: white;
-      width: 75%;
-    }
-    .start_button {
-      justify-content: center;
-      position: absolute;
-      top: 78%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      width: 75%;
-    }
-    .google_login_button {
-      justify-content: center;
-      position: absolute;
-      top: 88%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: blue;
-      width: 75%;
+      width: 90%;
+      border-radius: 20px;
+      border: 3px solid #13c716;
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .title {
+          font-weight: bold;
+          font-family: sans-serif;
+          margin-top: 20%;
+          color: #13c716;
+        }
+        .add_image_button {
+          margin-top: 10%;
+          .login_addIconLoaded {
+            cursor: pointer;
+            color: #13c716;
+          }
+          .login_addIcon {
+            cursor: pointer;
+            color: whitesmoke;
+          }
+          .file_submit_icon {
+            cursor: pointer;
+            color: green;
+          }
+          .file_submitted_icon {
+            cursor: pointer;
+            color: white;
+          }
+        }
+        .add_image_text {
+          font-size: small;
+          color: #13c716;
+        }
+        .form_container {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .username_area {
+            margin-top: 1%;
+            width: 80%;
+          }
+          .email_area {
+            margin-top: 1%;
+            width: 80%;
+          }
+          .password_area {
+            margin-top: 1%;
+            width: 80%;
+          }
+          .start_button {
+            margin-top: 5%;
+            font-weight: bold;
+            background-color: #13c716;
+            color: white;
+            width: 200px;
+            border-radius: 20px;
+            border: none;
+          }
+          .back_button {
+            cursor: pointer;
+            background-color: #13c716;
+            color: white;
+            font-size: large;
+            font-weight: bold;
+            margin: 1% auto 10%;
+            padding: 1%;
+            border-radius: 20px;
+            border: none;
+            width: 200px;
+          }
+        }
+      }
     }
   }
 }
