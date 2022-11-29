@@ -90,19 +90,15 @@ const Register: NextPage = () => {
       });
   };
 
+  const backButton = () => {
+    router.push(Router.logout.path);
+  };
+
   return (
     <div className={styles.root}>
-      <Image
-        src={RegisterImage}
-        alt='RegisterImage'
-        objectFit='cover'
-        className={styles.register_image}
-      />
       <div className={styles.input_area}>
-        <Typography component='h1' variant='h5' className={styles.title}>
-          メンバー登録
-        </Typography>
-        <Box textAlign='center'>
+        <div className={styles.container}>
+          <h2 className={styles.title}>メンバー登録</h2>
           <IconButton className={styles.add_image_button}>
             <label>
               <AccountCircleIcon
@@ -112,70 +108,71 @@ const Register: NextPage = () => {
               <input
                 type='file'
                 onChange={onChangeImageHandler}
-                className={styles.login_hiddenIcon}
+                className={avatarImage ? styles.file_submitted_icon : styles.file_submit_icon}
               />
             </label>
           </IconButton>
-          <div className={styles.add_image_text}>アイコン画像を設定してください</div>
-        </Box>
-        <form noValidate>
-          <TextField
-            margin='normal'
-            required
-            fullWidth
-            id='username'
-            label='Username'
-            name='username'
-            autoComplete='username'
-            autoFocus
-            value={username}
-            className={styles.username_area}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setUsername(e.target.value);
-            }}
-          />
-          <TextField
-            margin='normal'
-            required
-            fullWidth
-            type='email'
-            id='email'
-            label='Email Address'
-            name='email'
-            autoComplete='email'
-            autoFocus
-            value={email}
-            className={styles.email_area}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <TextField
-            margin='normal'
-            required
-            fullWidth
-            name='password'
-            label='Password'
-            type='password'
-            id='password'
-            autoComplete='current-password'
-            value={password}
-            className={styles.password_area}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <Button
-            variant='contained'
-            disabled={!username || !email || password.length < 6 || !avatarImage}
-            color='primary'
-            endIcon={<SendIcon />}
-            onClick={signUpEmail}
-            className={styles.start_button}
-          >
-            上記内容ではじめる
-          </Button>
-          <Button
+          <form className={styles.form_container}>
+            <TextField
+              margin='normal'
+              required
+              fullWidth
+              id='username'
+              label='Username'
+              name='username'
+              autoComplete='username'
+              autoFocus
+              value={username}
+              className={styles.username_area}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setUsername(e.target.value);
+              }}
+            />
+            <TextField
+              margin='normal'
+              required
+              fullWidth
+              type='email'
+              id='email'
+              label='Email Address'
+              name='email'
+              autoComplete='email'
+              autoFocus
+              value={email}
+              className={styles.email_area}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <TextField
+              margin='normal'
+              required
+              fullWidth
+              name='password'
+              label='Password'
+              type='password'
+              id='password'
+              autoComplete='current-password'
+              value={password}
+              className={styles.password_area}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <Button
+              variant='contained'
+              disabled={!username || !email || password.length < 6 || !avatarImage}
+              color='primary'
+              endIcon={<SendIcon />}
+              onClick={signUpEmail}
+              className={styles.start_button}
+            >
+              はじめる
+            </Button>
+            <button onClick={backButton} className={styles.back_button}>
+              戻る
+            </button>
+            {/* <Button
             fullWidth
             variant='contained'
             color='default'
@@ -184,8 +181,9 @@ const Register: NextPage = () => {
             onClick={signInGoogle}
           >
             Googleでメンバーになる
-          </Button>
-        </form>
+          </Button> */}
+          </form>
+        </div>
       </div>
     </div>
   );

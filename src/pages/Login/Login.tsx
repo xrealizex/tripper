@@ -1,20 +1,20 @@
 //- フレームワーク
 import { NextPage, GetStaticProps } from 'next';
 import React, { useState } from 'react';
-// import Image from 'next/image';
 import { useRouter } from 'next/router';
+
+//firebase
 import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 
 //- 共通
 import { auth, provider } from '../../firebase';
 import { Router } from '../../router/router';
-// import RegisterImage from '../../../public/images/register.jpg';
 
 //- スタイル
 import styles from './Login.module.scss';
 
 //- MUI
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import CameraIcon from '@material-ui/icons/Camera';
 import SendIcon from '@material-ui/icons/Send';
 
