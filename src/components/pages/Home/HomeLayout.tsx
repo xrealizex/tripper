@@ -52,20 +52,20 @@ const HomeLayout: NextPage = () => {
   }, []);
 
   //adminログイン
-  const gestLoginForAdmin = async () => {
-    try {
-      await signInWithEmailAndPassword(
-        auth,
-        process.env.NEXT_PUBLIC_ADMIN_EMAIL,
-        process.env.NEXT_PUBLIC_ADMIN_PASSWORD,
-      );
-      await router.push(Router.main.path);
-      alert('ログインしました');
-    } catch (error: unknown) {
-      console.log(error);
-      alert('ログインに失敗しました');
-    }
-  };
+  // const gestLoginForAdmin = async () => {
+  //   try {
+  //     await signInWithEmailAndPassword(
+  //       auth,
+  //       process.env.NEXT_PUBLIC_ADMIN_EMAIL,
+  //       process.env.NEXT_PUBLIC_ADMIN_PASSWORD,
+  //     );
+  //     await router.push(Router.main.path);
+  //     alert('ログインしました');
+  //   } catch (error: unknown) {
+  //     console.log(error);
+  //     alert('ログインに失敗しました');
+  //   }
+  // };
 
   return (
     <div className={styles.root}>
