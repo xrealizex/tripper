@@ -99,19 +99,18 @@ const Register: NextPage = () => {
       <div className={styles.input_area}>
         <div className={styles.container}>
           <h2 className={styles.title}>メンバー登録</h2>
-          <IconButton className={styles.add_image_button}>
-            <label>
-              <AccountCircleIcon
-                fontSize='large'
-                className={avatarImage ? styles.login_addIconLoaded : styles.login_addIcon}
-              />
-              <input
-                type='file'
-                onChange={onChangeImageHandler}
-                className={avatarImage ? styles.file_submitted_icon : styles.file_submit_icon}
-              />
-            </label>
-          </IconButton>
+
+          <label className={styles.add_image_button}>
+            <AccountCircleIcon
+              fontSize='large'
+              className={avatarImage ? styles.login_addIconLoaded : styles.login_addIcon}
+            />
+            <input
+              type='file'
+              onChange={onChangeImageHandler}
+              className={avatarImage ? styles.file_submitted_icon : styles.file_submit_icon}
+            />
+          </label>
           <form className={styles.form_container}>
             <TextField
               margin='normal'

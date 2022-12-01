@@ -146,11 +146,11 @@ const Plan: NextPage = () => {
         ) : (
           <p>No Data</p>
         )}
-        <div className={styles.comment_open_container}>
-          <MessageIcon
-            className={styles.comment_open_icon}
-            onClick={() => setOpenComments(!openComments)}
-          />
+        <div
+          className={styles.comment_open_container}
+          onClick={() => setOpenComments(!openComments)}
+        >
+          <MessageIcon className={styles.comment_open_icon} />
           <span className={styles.comment_open_text}>コメントする</span>
         </div>
 
