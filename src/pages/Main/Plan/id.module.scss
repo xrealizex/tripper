@@ -35,8 +35,8 @@
       display: flex;
       justify-content: center;
       margin: 30px 0 10px 0;
+      cursor: pointer;
       .comment_open_icon {
-        cursor: pointer;
         margin-right: 5px;
       }
       .comment_open_text {
@@ -153,8 +153,8 @@
         display: flex;
         justify-content: center;
         margin: 30px 0 10px 0;
+        cursor: pointer;
         .comment_open_icon {
-          cursor: pointer;
           margin-right: 5px;
         }
         .comment_open_text {
