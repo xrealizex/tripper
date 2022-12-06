@@ -32,9 +32,9 @@ const HomeLayout: NextPage = () => {
   const onClickLogin = () => {
     router.push(Router.login.path);
   };
-  const onClickQuickStart = () => {
-    router.push(Router.main.path);
-  };
+  // const onClickQuickStart = () => {
+  //   router.push(Router.main.path);
+  // };
 
   //ログイン管理
   useEffect(() => {
@@ -51,21 +51,24 @@ const HomeLayout: NextPage = () => {
     });
   }, []);
 
-  //adminログイン
-  // const gestLoginForAdmin = async () => {
-  //   try {
-  //     await signInWithEmailAndPassword(
-  //       auth,
-  //       process.env.NEXT_PUBLIC_ADMIN_EMAIL,
-  //       process.env.NEXT_PUBLIC_ADMIN_PASSWORD,
-  //     );
-  //     await router.push(Router.main.path);
-  //     alert('ログインしました');
-  //   } catch (error: unknown) {
-  //     console.log(error);
-  //     alert('ログインに失敗しました');
-  //   }
-  // };
+  //adminログイン;
+  const gestLoginForAdmin = async () => {
+    if (!process.env.NEXT_PUBLIC_ADMIN_EMAIL || !process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+      throw new Error('invalid email or password');
+    }
+    try {
+      await signInWithEmailAndPassword(
+        auth,
+        process.env.NEXT_PUBLIC_ADMIN_EMAIL,
+        process.env.NEXT_PUBLIC_ADMIN_PASSWORD,
+      );
+      await router.push(Router.main.path);
+      alert('ログインしました');
+    } catch (error: unknown) {
+      console.log(error);
+      alert('ログインに失敗しました');
+    }
+  };
 
   return (
     <div className={styles.root}>
@@ -90,7 +93,7 @@ const HomeLayout: NextPage = () => {
         <Button variant='contained' onClick={onClickRegister} className={styles.register_button}>
           メンバーになる
         </Button>
-        <Button variant='contained' onClick={onClickQuickStart} className={styles.start_button}>
+        <Button variant='contained' onClick={gestLoginForAdmin} className={styles.start_button}>
           いますぐはじめる
         </Button>
       </div>
