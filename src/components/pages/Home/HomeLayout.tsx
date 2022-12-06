@@ -53,6 +53,9 @@ const HomeLayout: NextPage = () => {
 
   //adminログイン;
   const gestLoginForAdmin = async () => {
+    if (!process.env.NEXT_PUBLIC_ADMIN_EMAIL || !process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+      throw new Error('invalid email or password');
+    }
     try {
       await signInWithEmailAndPassword(
         auth,
