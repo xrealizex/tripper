@@ -14,6 +14,8 @@ https://tripper-phi.vercel.app/
 
 ・ログイン機能(Email/password)
 
+・ゲストログイン機能
+
 ・ログアウト機能
 
 ・投稿機能
@@ -29,23 +31,27 @@ https://tripper-phi.vercel.app/
 ***
 ・HTML/CSS
 
-・SCSS
+・Sass
 
 ・TypeScript
-
-・MUI
 
 ## バックエンド
 ***
 ・Firebase(9.9.4)
 
-## フレームワーク
+## インフラ
+***
+Vercel
+
+## フレームワーク・ライブラリ
 ***
 ・React(18.2.0)
 
 ・Redux Toolkit(1.8.5)
 
 ・Next.js(12.2.5)
+
+・MUI(5.10.3)
 
 # 制作背景
 ***
