@@ -86,10 +86,14 @@ const TripLists: NextPage = () => {
           <p className={show ? styles.hidden_none_tex : styles.none_text}>※投稿がありません</p>
         )}
         <div className={styles.postGridContainer}>
-          <Avatar
-            src={user.photoUrl ?? IconImage}
-            className={show ? styles.hidden_avatar : styles.avatar}
-          />
+          <div className={styles.profile_container}>
+            <Avatar
+              src={user.photoUrl ?? IconImage}
+              className={show ? styles.hidden_avatar : styles.avatar}
+            />
+            <span className={styles.user_name}>{user.displayName}</span>
+          </div>
+
           <button
             onClick={() => {
               setShow(true);
