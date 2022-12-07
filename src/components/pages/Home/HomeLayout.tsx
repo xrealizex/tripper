@@ -51,19 +51,19 @@ const HomeLayout: NextPage = () => {
     });
   }, []);
 
-  //adminログイン;
+  //guestログイン;
   const gestLoginForAdmin = async () => {
-    if (!process.env.NEXT_PUBLIC_ADMIN_EMAIL || !process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
+    if (!process.env.NEXT_PUBLIC_GUEST_EMAIL || !process.env.NEXT_PUBLIC_GUEST_PASSWORD) {
       throw new Error('invalid email or password');
     }
     try {
       await signInWithEmailAndPassword(
         auth,
-        process.env.NEXT_PUBLIC_ADMIN_EMAIL,
-        process.env.NEXT_PUBLIC_ADMIN_PASSWORD,
+        process.env.NEXT_PUBLIC_GUEST_EMAIL,
+        process.env.NEXT_PUBLIC_GUEST_PASSWORD,
       );
       await router.push(Router.main.path);
-      alert('ログインしました');
+      alert('ゲストとしてログインしました');
     } catch (error: unknown) {
       console.log(error);
       alert('ログインに失敗しました');
