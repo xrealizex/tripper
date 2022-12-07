@@ -41,7 +41,7 @@ https://tripper-phi.vercel.app/
 
 ## インフラ
 ***
-Vercel
+・Vercel
 
 ## フレームワーク・ライブラリ
 ***
