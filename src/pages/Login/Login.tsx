@@ -133,10 +133,10 @@ const Login: NextPage = () => {
   );
 };
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   return {
-//     props: {},
-//   };
-// };
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {},
+  };
+};
 
 export default Login;

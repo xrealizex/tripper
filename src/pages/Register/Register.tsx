@@ -1,7 +1,6 @@
 //- フレームワーク
 import { NextPage, GetStaticProps } from 'next';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { signInWithPopup, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
@@ -12,15 +11,13 @@ import { updateUserProfile } from '../../userSlice';
 
 //- 共通
 import { auth, provider, storage } from '../../firebase';
-import RegisterImage from '../../../public/images/register.jpg';
 import { Router } from '../../router/router';
 
 //- スタイル
 import styles from './Register.module.scss';
 
 //- MUI
-import { Button, TextField, Typography, IconButton, Box } from '@material-ui/core';
-import CameraIcon from '@material-ui/icons/Camera';
+import { Button, TextField } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
@@ -188,10 +185,10 @@ const Register: NextPage = () => {
   );
 };
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   return {
-//     props: {},
-//   };
-// };
+export const getStaticProps: GetStaticProps = async (context) => {
+  return {
+    props: {},
+  };
+};
 
 export default Register;
