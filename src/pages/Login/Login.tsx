@@ -39,16 +39,16 @@ const Login: NextPage = () => {
     }
   };
 
-  const signInGoogle = async () => {
-    try {
-      await signInWithPopup(auth, provider);
-      await router.push(Router.main.path);
-      alert('ログインしました');
-    } catch (error: unknown) {
-      console.log(error);
-      alert('ログインに失敗しました');
-    }
-  };
+  // const signInGoogle = async () => {
+  //   try {
+  //     await signInWithPopup(auth, provider);
+  //     await router.push(Router.main.path);
+  //     alert('ログインしました');
+  //   } catch (error: unknown) {
+  //     console.log(error);
+  //     alert('ログインに失敗しました');
+  //   }
+  // };
 
   const backButton = () => {
     router.push(Router.logout.path);
@@ -114,7 +114,7 @@ const Login: NextPage = () => {
           >
             ログイン
           </Button>
-          <Button
+          {/* <Button
             fullWidth
             variant='contained'
             color='default'
@@ -123,7 +123,7 @@ const Login: NextPage = () => {
             onClick={signInGoogle}
           >
             Googleでログイン
-          </Button>
+          </Button> */}
           <button onClick={backButton} className={styles.back_button}>
             戻る
           </button>
