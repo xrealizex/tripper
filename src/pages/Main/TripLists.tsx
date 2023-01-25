@@ -20,7 +20,7 @@ import { selectUser } from '../../userSlice';
 import styles from './TripLists.module.scss';
 
 //- MUI
-import { Avatar, Button } from '@material-ui/core';
+import { Avatar } from '@material-ui/core';
 
 //型
 import { Post } from '../../types/Post';
