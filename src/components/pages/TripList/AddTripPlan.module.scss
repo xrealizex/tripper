@@ -4,6 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   column-gap: 10px;
+  overflow-y:scroll;
   .plan_name {
     cursor: pointer;
     display: inline-block;
@@ -28,6 +29,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 0 2%;
+    overflow-y:scroll;
     .plan_name {
       cursor: pointer;
       display: inline-block;
